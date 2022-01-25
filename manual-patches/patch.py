@@ -1,5 +1,6 @@
 from subprocess import check_output
 import os
+import sys
 
 
 # Saves list of currently downloaded libraries in case something is messed up halfway through
@@ -15,71 +16,71 @@ with open("repos1.txt", "w") as F:
         F.write(d + "\n")
 
 # Sets the branch to push to
-branch = "main"
+BRANCH = "main"
 
 # Sets the commit message to use
-commit_message = "Updated docs link, updated python docs link, updated setup.py"
+COMMIT_MESSAGE = "Updated docs link, updated python docs link, updated setup.py"
 
 # Variables to turn on and off various parts of the patch script
-patch = True
-commit = False
-push = False
+PATCH = True
+COMMIT = False
+PUSH = False
 
 # Verifies that patching was intended to be enabled
-if patch:
-    if input(f"Patching is enabled. Confirm: ").lower() not in ("y", "yes"):
+if PATCH:
+    if input("Patching is enabled. Confirm: ").lower() not in ("y", "yes"):
         print("Cancelled")
-        exit(1)
+        sys.exit(1)
 else:
     print("Patching is disabled")
 
 # Verifies that committing was intended to be enabled
-if commit:
+if COMMIT:
     if input(
-        f"Commit message: {commit_message}\nCommitting is enabled. Confirm: "
+        f"Commit message: {COMMIT_MESSAGE}\nCommitting is enabled. Confirm: "
     ).lower() not in ("y", "yes"):
         print("Cancelled")
-        exit(1)
+        sys.exit(1)
 else:
     print("Committing is disabled")
 
 # Verifies that pushing was intended to be enabled
-if push:
-    if input(f"Branch: {branch}\nPushing is enabled. Confirm: ").lower() not in (
+if PUSH:
+    if input(f"Branch: {BRANCH}\nPushing is enabled. Confirm: ").lower() not in (
         "y",
         "yes",
     ):
         print("Cancelled")
-        exit(1)
-    if input(f"Are you sure?: ").lower() not in ("y", "yes"):
+        sys.exit(1)
+    if input("Are you sure?: ").lower() not in ("y", "yes"):
         print("Canceled")
-        exit(1)
+        sys.exit(1)
 else:
     print("Pushing is disabled")
 
 # Confirms options of what is enabled and disabled
 if input(
-    f"Patch: {patch}, Commit: {commit}, Push: {push}\nIs this all correct? "
+    f"Patch: {PATCH}, Commit: {COMMIT}, Push: {PUSH}\nIs this all correct? "
 ).lower() not in ("y", "yes"):
     print("Cancelled")
-    exit(1)
+    sys.exit(1)
 
 # Allows you to run patch on first X number of libraries
-num = input("How many would you like to run? (leave blank for all): ")
-if len(num):
-    num = int(num)
+NUM = input("How many would you like to run? (leave blank for all): ")
+if len(NUM):
+    NUM = int(NUM)
 else:
-    num = None
+    NUM = None
 
 i = 0
 for repo in dirlist:
-    loc = "/home/dherrada/adafruit/patch/repos/{}/".format(repo)
+    loc = f"/home/dherrada/adafruit/patch/repos/{repo}/"
     os.chdir(loc)
-    print("https://github.com/adafruit/{}".format(repo))
-    if patch:
+    print(f"https://github.com/adafruit/{repo}")
+    if PATCH:
         # Ensures that the local version is up to date
         os.system("git pull")
-        os.system(f"git checkout -b {branch}")
+        os.system(f"git checkout -b {BRANCH}")
 
         # Actual patch
         os.system(
@@ -98,16 +99,16 @@ for repo in dirlist:
         os.system("sed -i '/Programming Language :: Python :: 3.5/d' setup.py")
 
     # Commits the patch
-    if commit:
+    if COMMIT:
         os.system("git add .")
-        os.system(f'git commit -m "{commit_message}"')
+        os.system(f'git commit -m "{COMMIT_MESSAGE}"')
 
     # Pushes the patch
-    if push:
+    if PUSH:
         # Uncomment all lines below and comment out line directly below if you're pushing to
         # Anything other than main/default branch
         os.system("git push")
-        # os.system(f'git push -u origin {branch}')
+        # os.system(f'git push -u origin {BRANCH}')
         os.system("cd ..")
         # os.system('google-chrome https://github.com/adafruit/{repo}/compare/main...adafruit:manual-patch?expand=1')
         # if input('Continue? ').lower in ('n', 'no'):
@@ -116,7 +117,7 @@ for repo in dirlist:
 
     # Checks to make sure max number of runs hasn't been exceeded
     i += 1
-    if i == num:
+    if i == NUM:
         break
 
 os.chdir("/home/dherrada/adafruit/patch/")
