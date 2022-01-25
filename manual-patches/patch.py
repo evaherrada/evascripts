@@ -1,28 +1,5 @@
 from subprocess import check_output
 import os
-import signal
-import time
-
-
-def storeData(F, db):
-    # Stores data in db file
-    dbfile = open(F, 'wb')
-    pickle.dump(db, dbfile)
-    dbfile.close()
-
-
-def loadData(F):
-    # Loads data from db file
-    dbfile = open(F, 'rb')
-    db = pickle.load(dbfile)
-    return db
-
-def handler(signum, frame):
-    res = input("Ctrl-c was pressed. Do you really want to exit? y/n ")
-    if res == 'y':
-        exit(1)
- 
-signal.signal(signal.SIGINT, handler)
 
 dirlist = check_output('ls /home/dherrada/adafruit/patch/repos/', shell=1).decode('utf-8').split('\n')
 dirlist.pop()
