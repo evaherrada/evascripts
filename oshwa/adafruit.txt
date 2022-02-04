@@ -1,0 +1,17 @@
+{'name': 'Adafruit ATtiny817 Breakout with seesaw - STEMMA QT / Qwiic', 'url': 'https://www.adafruit.com/product/5233', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'Adafruit 1.69" 280x240 Round Rectangle Color IPS TFT Display', 'url': 'https://www.adafruit.com/product/5206', 'version': 'ST7789', 'description': '', 'documentation': ''}
+{'name': 'Adafruit Monochrome 1.12" 128x128 OLED Graphic Display', 'url': 'https://www.adafruit.com/product/5297', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit Proximity Trinkey - USB APDS9960 Sensor Dev Board', 'url': 'https://www.adafruit.com/product/5022', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'Adafruit LED Glasses Front Panel - 116 RGB LEDs with I2C Driver', 'url': 'https://www.adafruit.com/product/5210', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit IS31FL3741 13x9 PWM RGB LED Matrix Driver', 'url': 'https://www.adafruit.com/product/5201', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit NeoSlider I2C QT Slide Potentiometer with 4 NeoPixels', 'url': 'https://www.adafruit.com/product/5295', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit LED Arcade Button 1x4 - STEMMA QT I2C Breakout', 'url': 'https://www.adafruit.com/product/5296', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit QT Py ESP32-S2 WiFi Dev Board with STEMMA QT', 'url': 'https://www.adafruit.com/product/5325', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'Adafruit MSA311 Triple Axis Accelerometer - STEMMA QT / Qwiic', 'url': 'https://www.adafruit.com/product/5309', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'ADXL375 - High G Accelerometer (+-200g) with I2C and SPI', 'url': 'https://www.adafruit.com/product/5374', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit LED Glasses Driver - nRF52840 Sensor Board', 'url': 'https://www.adafruit.com/product/5217', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'Adafruit QT Py ESP32-S2 WiFi Dev Board with uFL Antenna Port', 'url': 'https://www.adafruit.com/product/5348', 'version': 'STEMMA QT', 'description': '', 'documentation': ''}
+{'name': 'Adafruit ANO Rotary Navigation Encoder Breakout PCB', 'url': 'https://www.adafruit.com/product/5221', 'version': '', 'description': '', 'documentation': ''}
+{'name': 'Adafruit SCD-40 - True CO2, Temperature and Humidity Sensor', 'url': 'https://www.adafruit.com/product/5187', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit SCD-41 - True CO2 Temperature and Humidity Sensor', 'url': 'https://www.adafruit.com/product/5190', 'version': 'STEMMA QT / Qwiic', 'description': '', 'documentation': ''}
+{'name': 'Adafruit ESP32-S2 Feather with BME280 Sensor - STEMMA QT', 'url': 'https://www.adafruit.com/product/5303', 'version': '4MB Flash + 2 MB PSRAM', 'description': '', 'documentation': ''}
