@@ -1,0 +1,3 @@
+[submodule "adabot-scripts/adabot"]
+	path = adabot-scripts/adabot
+	url = https://github.com/adafruit/adabot.git
