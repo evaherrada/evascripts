@@ -3,6 +3,7 @@ import urllib.parse
 import sys
 import requests
 import os
+import json
 
 ignored_files = [
     "CODE_OF_CONDUCT.md",
@@ -34,10 +35,10 @@ with open("repositories.txt", "r") as F:
 
         r = requests.get(
             f"https://api.github.com/repos/adafruit/adafruit_circuitpython_{lib_shortname.lower()}/releases/latest",
-            auth=("dherrada", gh_token),
+            auth=("evaherrada", gh_token),
         )
-
         current_tag = r.json()["tag_name"]
+        body = r.json()['body']
         split_tag = current_tag.split(".")
         release_tag = (
             split_tag[0] + "." + split_tag[1] + "." + str(int(split_tag[2]) + 1)
@@ -48,7 +49,7 @@ with open("repositories.txt", "r") as F:
 
         r = requests.get(
             f"https://api.github.com/repos/adafruit/adafruit_circuitpython_{lib_shortname.lower()}/compare/{current_tag}...main",
-            auth=("dherrada", gh_token),
+            auth=("evaherrada", gh_token),
         )
 
         json = r.json()
@@ -71,16 +72,21 @@ with open("repositories.txt", "r") as F:
                 print(f'\033[1;31m{i["filename"]}\033[0m')
             else:
                 print(f'\033[1;32m{i["filename"]}\033[0m')
-        filled_template = f"""To use in CircuitPython, simply install the [Adafruit CircuitPython Bundle](https://circuitpython.org/libraries).
+        if 'cpython' in body.lower():
+            filled_template = f"""To use in CircuitPython, simply install the [Adafruit CircuitPython Bundle](https://circuitpython.org/libraries).
 
 To use in CPython, `pip3 install adafruit-circuitpython-{lib_pypiname}`.
+
+Read the [docs](http://circuitpython.readthedocs.io/projects/{lib_pypiname}/en/latest/) for info on how to use it."""
+        else:
+            filled_template = f"""To use in CircuitPython, simply install the [Adafruit CircuitPython Bundle](https://circuitpython.org/libraries).
 
 Read the [docs](http://circuitpython.readthedocs.io/projects/{lib_pypiname}/en/latest/) for info on how to use it."""
 
         form_dict = {
             "tag": release_tag,
             "body": filled_template,
-            "title": "%s - Updated pylint version, linted" % release_tag,
+            "title": "%s - Updated documentation link, python version" % release_tag,
         }
 
         qstring = urllib.parse.urlencode(form_dict)
