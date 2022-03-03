@@ -1,10 +1,7 @@
 import os
 import time
 
-branches =['spdx-44', 'spdx-45',
-           'spdx-46', 'spdx-47', 'spdx-48',
-           'spdx-49', 'spdx-50', 'spdx-51',
-           'spdx-52']
+branches =['spdx-52']
 
 os.chdir('./Adafruit_Learning_System_Guides/')
 
