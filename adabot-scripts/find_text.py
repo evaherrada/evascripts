@@ -5,8 +5,8 @@ import os
 import sys
 import datetime
 
-file = ".github/workflows/build.yml"
-text_1 = "Python 3.x"
+file = ".pre-commit-config.yaml"
+text_1 = "pylint-2.7.1"
 text_2 = "setup-python@v2"
 URL_TEMPLATE = "https://raw.githubusercontent.com/adafruit/{}/main/{}"
 RELEASE_TEMPLATE = "https://api.github.com/repos/adafruit/{}/releases/latest"
