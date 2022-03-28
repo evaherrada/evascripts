@@ -21,3 +21,5 @@ Updating adabot in circuitpython-org:
     git add .
     git commit -m "Updated adabot"
     git push
+
+Test
